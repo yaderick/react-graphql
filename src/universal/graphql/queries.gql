@@ -1,0 +1,21 @@
+#import './fragments'
+
+query getOrganization($organizationName: String!, $cursor: String) {
+  organization(login: $organizationName) {
+    name
+    login
+    url
+    repositories(first: 5, after: $cursor) {
+      edges {
+        node {
+          ...repository
+        }
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+    }
+  }
+}
+

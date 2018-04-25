@@ -1,0 +1,10 @@
+mutation loginMutation($mobile: String!, $password: String!) {
+  createUserToken(mobile: $mobile, password: $password) {
+    id
+    token{
+      token
+      expired_at
+      refresh_expired_at
+    }
+  }
+}
